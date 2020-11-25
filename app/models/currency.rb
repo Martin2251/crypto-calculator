@@ -5,7 +5,7 @@ class Currency <
   end
 
   def current_price
-    url = 'https://api.coinmarketcap.com/v1/ticker/'
+    url = "https://api.coinmarketcap.com/v1/ticker/#{self.slug}"
     request = HTTParty.get(url + self.slug)
     response = JSON.parse(request.body)[0]["price-usd"]
 
